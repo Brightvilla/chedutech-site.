@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 158" role="img" aria-labelledby="title desc">
+  <title id="title">Chedutech Enterprises</title>
+  <desc id="desc">Shield-and-circuit emblem with tools and machinery, labeled Chedutech Enterprises.</desc>
+  <rect width="240" height="158" rx="18" fill="#06264A"/>
+  <svg x="86" y="8" width="68" height="68" viewBox="0 0 64 64" aria-label="Shield and circuit emblem">
+      <title>Chedutech Enterprises</title>
+      <rect width="64" height="64" rx="12" fill="#06264A"/>
+      <path d="M32 5.5 55 15v17.2c0 13.2-9.2 22.2-23 27.3C18.2 54.4 9 45.4 9 32.2V15L32 5.5Z" fill="#092F57" stroke="#fff" stroke-width="3.2" stroke-linejoin="round"/>
+      <path d="M30 14 15.5 20v12.2c0 8.3 4.7 14.7 14.5 19.1V14Z" fill="#087EB5" opacity=".34"/>
+      <path d="M34 14 48.5 20v12.2c0 8.3-4.7 14.7-14.5 19.1V14Z" fill="#F4A900" opacity=".28"/>
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6">
+        <path d="M29 28H21v-6l-4-4" stroke="#17B8E8"/>
+        <path d="M35 28h8v-6l4-4" stroke="#F5B21B"/>
+        <path d="M29 36h-8v7l-4 4" stroke="#17B8E8"/>
+        <path d="M35 36h8v7l4 4" stroke="#F5B21B"/>
+        <path d="M32 25v-9" stroke="#17B8E8"/>
+        <path d="M32 39v10" stroke="#F28A1A"/>
+      </g>
+      <g fill="#06264A" stroke-width="2.5">
+        <circle cx="16.5" cy="17.5" r="3" stroke="#17B8E8"/>
+        <circle cx="47.5" cy="17.5" r="3" stroke="#F5B21B"/>
+        <circle cx="16.5" cy="47.5" r="3" stroke="#17B8E8"/>
+        <circle cx="47.5" cy="47.5" r="3" stroke="#F5B21B"/>
+        <circle cx="32" cy="14" r="3" stroke="#17B8E8"/>
+        <circle cx="32" cy="51" r="3" stroke="#F28A1A"/>
+      </g>
+      <path d="M32 23.5 34 24.3 35.8 23 38 25.2 36.8 27.1 37.6 29 40 30v4l-2.4 1-.8 1.9 1.2 1.9-2.2 2.2-1.8-1.3-2 .8-.9 2.4h-3.2l-.9-2.4-2-.8-1.8 1.3L21 38.8l1.2-1.9-.8-1.9L19 34v-4l2.4-1 .8-1.9-1.2-1.9 2.2-2.2 1.8 1.3 2-.8.9-2.4h3.2Z" fill="#fff" stroke="#06264A" stroke-width="1" stroke-linejoin="round"/>
+      <circle cx="30.5" cy="32" r="4.1" fill="#06264A"/>
+      <path d="M28 35.6 33.5 30a3.1 3.1 0 0 1 3.9-3.9l-2.2 2.2 1.5 1.5 2.2-2.2A3.1 3.1 0 0 1 35 31.5l-5.6 5.6a1 1 0 0 1-1.4-1.5Z" fill="#F5B21B" stroke="#06264A" stroke-width=".75" stroke-linejoin="round"/>
+      <path d="m27.5 28.2 8.2 8.2" fill="none" stroke="#17B8E8" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="27.1" cy="27.8" r="1.5" fill="#17B8E8" stroke="#06264A" stroke-width=".55"/>
+    
+  </svg>
+  <text x="120" y="112" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" letter-spacing="1.4">CHEDUTECH</text>
+  <text x="120" y="139" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="5">ENTERPRISES</text>
+</svg>

@@ -1,0 +1,17 @@
+{
+  "description": "Chedutech Enterprises \u2014 dealers in power tools, water pumps and spare parts. Call 0707 807 422 or 0737 918 217, or chat on WhatsApp for product enquiries and quotes.",
+  "robots": {
+    "index": true
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  },
+  "title": "Chedutech Enterprises | Power Tools, Water Pumps & Spare Parts",
+  "icons": {
+    "icon": "/favicon.svg"
+  },
+  "openGraph": {
+    "image": "/og-image.png"
+  }
+}
