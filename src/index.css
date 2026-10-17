@@ -261,7 +261,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--orange)}
     border-radius:16px;
   }
 }
-/* Fix: contact section overflowing on mobile */
+
 .contact-panel,
 .contact-card,
 .contact-info,
