@@ -261,3 +261,25 @@ a:focus-visible,button:focus-visible{outline-color:var(--orange)}
     border-radius:16px;
   }
 }
+/* Fix: contact section overflowing on mobile */
+.contact-panel,
+.contact-card,
+.contact-info,
+.contact-form,
+.contact-form label,
+.contact-form-submit { min-width: 0; max-width: 100%; }
+
+@media (max-width: 900px) {
+  .contact-panel { grid-template-columns: minmax(0, 1fr); }
+}
+
+.social-links { flex-wrap: wrap; }
+.contact-address,
+.contact-phones { flex-wrap: wrap; overflow-wrap: anywhere; }
+.contact-info h2,
+.contact-info .contact-lead { overflow-wrap: anywhere; }
+
+@media (max-width: 600px) {
+  .social-links a { width: 44px; height: 44px; }
+  .contact-form-submit .button { white-space: normal; }
+}
