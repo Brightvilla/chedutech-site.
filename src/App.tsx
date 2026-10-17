@@ -368,6 +368,13 @@ export default function App() {
           />
           <div className="hero-shade" />
           <div className="site-width hero-content">
+            <img
+              className="hero-phone-logo"
+              src={`${import.meta.env.BASE_URL}phone-logo.jpg`}
+              alt="Chedutech Enterprises"
+              width={240}
+              height={240}
+            />
             <div className="eyebrow hero-eyebrow">
               <span /> THE RIGHT TOOLS. THE RIGHT PARTNER.
             </div>

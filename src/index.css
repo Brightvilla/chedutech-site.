@@ -250,4 +250,14 @@ a:focus-visible,button:focus-visible{outline-color:var(--orange)}
 /* ---- Logo ---- */
 .brand-logo{display:block;height:54px;width:auto;border-radius:8px}
 .brand-logo-sm{height:40px}
-@media(max-width:600px){.brand-logo{height:46px}}
+/* Logo at the top of the hero on phones only */
+.hero-phone-logo{display:none}
+@media (max-width:768px){
+  .hero-phone-logo{
+    display:block;
+    width:min(62vw,240px);
+    height:auto;
+    margin:0 auto 14px;
+    border-radius:16px;
+  }
+}
