@@ -376,7 +376,7 @@ export default function App() {
               height={240}
             />
             <div className="eyebrow hero-eyebrow">
-              <span /> CHEDUTECH-THE RIGHT TOOLS. THE RIGHT PARTNER.
+              <span /> CHEDUTECH. THE RIGHT TOOLS. THE RIGHT PARTNER.
             </div>
             <h1>
               Power your work.
@@ -384,7 +384,7 @@ export default function App() {
               Keep it <em>moving.</em>
             </h1>
             <p>
-              We are dealers in power tools,water pumps and all types of spares
+              We are dealers in power tools,water pumps and all types of spares.
               <br className="desktop-break" /> Everything you need to get the
               job done right.
             </p>
