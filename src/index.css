@@ -341,6 +341,5 @@ a:focus-visible,button:focus-visible{outline-color:var(--orange)}
   .contact-form-submit .button { white-space: normal; }
 }
 
-/* Confirmation shown under the Call button on desktop (number copied) */
 .contact-notice{display:flex;align-items:center;gap:8px;margin:12px 0 0;padding:10px 14px;border-radius:8px;background:var(--blue-tint);color:#0f3a85;font-size:13px;font-weight:600;line-height:1.4}
 .contact-notice svg{flex-shrink:0}
