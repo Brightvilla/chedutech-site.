@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { photo, productCategories, products, type Product } from "./products"
 
-type IconName = "arrow" | "phone" | "chat" | "shield" | "tool" | "truck" | "check" | "close" | "menu" | "bolt" | "pin"
+type IconName = "arrow" | "phone" | "chat" | "shield" | "tool" | "truck" | "check" | "close" | "menu" | "bolt" | "pin" | "mail"
 
 function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
   const paths: Record<IconName, React.ReactNode> = {
@@ -45,6 +45,12 @@ function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
         <circle cx="12" cy="9.5" r="2.5" />
       </>
     ),
+    mail: (
+      <>
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 7 9 6 9-6" />
+      </>
+    ),
   }
   return (
     <svg
@@ -63,12 +69,68 @@ function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
   )
 }
 
+const EMAIL = "chedutechenterprises@gmail.com"
+
+const whatsapp = (message: string) =>
+  `https://wa.me/254707807422?text=${encodeURIComponent(message)}`
+
 const LOGO = `${import.meta.env.BASE_URL}favicon.svg`
 const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=River+Road+Nairobi+Kenya"
 const FACEBOOK_URL = "https://www.facebook.com/search/top?q=Edwin%20Osundwa"
 const INSTAGRAM_URL = "https://www.instagram.com/" // TODO: replace with your Instagram profile link
 // TODO: replace these two search links with the direct profile links once you have them
 const TIKTOK_URL = "https://www.tiktok.com/search?q=Edwin%20Osundwa"
+
+const CALL_NUMBER = "0707 807 422"
+const GMAIL_COMPOSE = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}&su=${encodeURIComponent("Enquiry from the Chedutech website")}`
+
+const isTouchDevice = () => window.matchMedia("(pointer: coarse)").matches
+
+async function copyText(text: string) {
+  try {
+    await navigator.clipboard.writeText(text)
+    return true
+  } catch {
+    return false
+  }
+}
+
+// Call and email actions for the contact section.
+// Phones: the normal tel: / mailto: links open the dialler and the mail app.
+// Desktops: there is usually no calling app, and many visitors have no mail app set up,
+// so the number is copied with a short confirmation and email opens Gmail compose.
+function useContactActions() {
+  const [notice, setNotice] = useState("")
+  const timer = useRef<number | undefined>(undefined)
+
+  useEffect(() => () => window.clearTimeout(timer.current), [])
+
+  const showNotice = (text: string) => {
+    setNotice(text)
+    window.clearTimeout(timer.current)
+    timer.current = window.setTimeout(() => setNotice(""), 5000)
+  }
+
+  const onCall = async () => {
+    if (isTouchDevice()) return
+    const copied = await copyText(CALL_NUMBER)
+    showNotice(
+      copied
+        ? `Number copied: ${CALL_NUMBER}. Call us from your phone.`
+        : `Call us on ${CALL_NUMBER}`,
+    )
+  }
+
+  const onEmail = (event: React.MouseEvent) => {
+    if (isTouchDevice()) return
+    event.preventDefault()
+    window.open(GMAIL_COMPOSE, "_blank", "noopener,noreferrer")
+  }
+
+  return { notice, onCall, onEmail }
+}
+
+type ContactActions = ReturnType<typeof useContactActions>
 
 function SocialIcon({ name }: { name: "whatsapp" | "facebook" | "instagram" | "tiktok" }) {
   const paths = {
@@ -88,7 +150,7 @@ function SocialIcon({ name }: { name: "whatsapp" | "facebook" | "instagram" | "t
   )
 }
 
-function SocialLinks() {
+function SocialLinks({ onCall, onEmail }: Pick<ContactActions, "onCall" | "onEmail">) {
   return (
     <ul className="social-links" aria-label="Contact Chedutech Enterprises">
       <li>
@@ -123,8 +185,13 @@ function SocialLinks() {
         </a>
       </li>
       <li>
-        <a href="tel:+254707807422" aria-label="Call 0707 807 422" title="Call us">
+        <a href="tel:+254707807422" onClick={onCall} aria-label="Call 0707 807 422" title="Call us">
           <Icon name="phone" size={22} />
+        </a>
+      </li>
+      <li>
+        <a href={`mailto:${EMAIL}`} onClick={onEmail} aria-label="Email Chedutech Enterprises" title="Email us">
+          <Icon name="mail" size={22} />
         </a>
       </li>
     </ul>
@@ -200,9 +267,6 @@ function ContactForm() {
 
 const quoteCategories = [...productCategories, "Spare parts", "Other"]
 
-const whatsapp = (message: string) =>
-  `https://wa.me/254707807422?text=${encodeURIComponent(message)}`
-
 const questions = [
   {
     question: "How do I get a price or check availability?",
@@ -234,6 +298,7 @@ export default function App() {
   const modalRef = useRef<HTMLElement>(null)
   const triggerRef = useRef<HTMLElement | null>(null)
   const modalOpen = quoteOpen || viewer !== null
+  const { notice, onCall, onEmail } = useContactActions()
 
   useEffect(() => {
     if (!modalOpen) return
@@ -359,12 +424,12 @@ export default function App() {
         <section className="hero">
           <img
             className="hero-image"
-            width={1600}
-            height={1067}
+            width={1920}
+            height={1272}
             fetchPriority="high"
             decoding="async"
-            src="https://images.unsplash.com/photo-1683115099413-5b7d85c2950c?auto=format&fit=crop&w=1600&q=72"
-            alt="A fully equipped workshop with power tools on a wooden tool wall"
+            src={photo("power-tools-wall-display")}
+            alt="Ryobi cordless drills, air tools and hand tools hanging on a wooden tool wall"
           />
           <div className="hero-shade" />
           <div className="site-width hero-content">
@@ -384,7 +449,7 @@ export default function App() {
               Keep it <em>moving.</em>
             </h1>
             <p>
-              We are dealers in power tools,water pumps and all types of spares.
+              We are dealers in power tools, water pumps and all types of spares.
               <br className="desktop-break" /> Everything you need to get the
               job done right.
             </p>
@@ -623,19 +688,28 @@ export default function App() {
               <h2>Tell us about your product.</h2>
               <p className="contact-lead">We'll get back to you within one business day.</p>
               <p className="contact-or">Fill out the form or reach us directly:</p>
-              <a className="button button-soft" href="tel:+254707807422">
-                <Icon name="phone" size={18} /> Call 0707 807 422
+              <a className="button button-soft" href="tel:+254707807422" onClick={onCall}>
+                <Icon name="phone" size={18} /> Call {CALL_NUMBER}
               </a>
+              {notice && (
+                <p className="contact-notice" role="status">
+                  <Icon name="check" size={16} /> {notice}
+                </p>
+              )}
               <div className="contact-phones">
                 <Icon name="phone" size={15} />
                 <a href="tel:+254707807422">0707 807 422</a>
                 <span>/</span>
                 <a href="tel:+254737918217">0737 918 217</a>
               </div>
+              <div className="contact-phones">
+                <Icon name="mail" size={15} />
+                <a href={`mailto:${EMAIL}`} onClick={onEmail}>{EMAIL}</a>
+              </div>
               <a className="contact-address" href={MAPS_URL} target="_blank" rel="noreferrer">
                 <Icon name="pin" size={16} /> River Road, Nairobi — view on Google Maps
               </a>
-              <SocialLinks />
+              <SocialLinks onCall={onCall} onEmail={onEmail} />
             </div>
             <div className="contact-card contact-form-card">
               <ContactForm />
@@ -649,7 +723,7 @@ export default function App() {
           <img className="brand-logo brand-logo-sm" src={LOGO} alt="Chedutech Enterprises" width={61} height={40} />
         </a>
         <p>Power tools. Water pumps. Spare parts.</p>
-        <span>© {new Date().getFullYear()} Chedutech Enterprises.</span>
+        <span>© {new Date().getFullYear()} Copyright Chedutech Enterprises. All Rights Reserved.</span>
       </footer>
 
       <a
